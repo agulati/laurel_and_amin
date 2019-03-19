@@ -1,15 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>LaurelAndAmit</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Laurel & Amit <%= content_for?(:title) ? "| #{yield(:title)}" : "" %></title>
+
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Playfair+Display" %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+
+    <%= javascript_include_tag  "http://code.jquery.com/jquery-3.3.1.min.js",
+                                integrity: "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=",
+                                crossorigin: "anonymous" %>
+    <%= javascript_include_tag  "http://code.jquery.com/ui/1.12.1/jquery-ui.min.js",
+                                integrity: "sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=",
+                                crossorigin: "anonymous" %>
+    <%= javascript_include_tag  "https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js" %>
+    <%= javascript_include_tag  "https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" %>
+    <%= javascript_include_tag "application" %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: "shared/navigation" %>
+
+    <div class="grid-container">
+      <div class="grid-x grid-margin-x">
+        <div class="cell">
+          <% flash.each do |flash_type, flash_message| %>
+            <div class="callout <%= flash_type %>" data-closable>
+              <p><%= flash_message %></p>
+            </div>
+          <% end %>
+        </div>
+        <div class="cell">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <%= yield :javascript_includes %>
   </body>
 </html>

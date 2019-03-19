@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hey <%= @photo.uploaded_by_name} %>,</p>
+    <p>
+      Thanks for sharing that picture <%= @photo.image_title %> from the
+      <%= @photo.event_name.titleize %>. It's up on the site now if you want
+      to <%= link_to("take a look", root_path) %> :)
+    </p>
+    <p>And thanks so much for being a part of our big day!</p>
+    <p>xo, Amit & Laurel</p>
+  </body>
+</html>

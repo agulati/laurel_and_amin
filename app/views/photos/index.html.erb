@@ -1,0 +1,29 @@
+<div class="grid-x grid-margin-x">
+  <div class="cell">
+    <h1>Gallery</h1>
+  </div>
+  <div class="cell">
+    <div id="canvas">
+      <div id="gallery-zoom">
+        <div class="photo-album">
+          <div ignore="1" class="tabs">
+            <div class="left"></div>
+            <div class="right"> </div>
+          </div>
+          <div class="hard"></div>
+          <div class="hard"></div>
+          <div class="hard p29"></div>
+          <div class="hard p30"></div>
+        </div>
+      </div>
+
+      <div id="slider-bar" class="turnjs-slider">
+        <div id="slider"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "photos" %>
+<% end %>

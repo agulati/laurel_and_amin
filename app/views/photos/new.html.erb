@@ -1,0 +1,71 @@
+<% content_for :title do %>
+  Upload
+<% end %>
+<div class="grid-x grid-margin-x">
+  <div class="cell">
+    <h1>Upload a Photo</h1>
+  </div>
+  <div class="cell">
+    <%= form_for @photo, url: { action: "create" }, remote: true do |f| %>
+      <div class="grid-x grid-margin-x">
+        <div class="cell small-12">
+          <fieldset class="fieldset">
+            <legend>Event</legend>
+            <div class="grid-x grid-margin-x">
+              <div class="medium-6 cell">
+                <%= f.radio_button(:event_name, "sangeet") %>
+                <%= label_tag(:event_name_sangeet, "Sangeet") %>
+              </div>
+              <div class="medium-6 cell">
+                <%= f.radio_button(:event_name, "wedding") %>
+                <%= label_tag(:event_name_wedding, "Wedding") %>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="cell small-12">
+          <fieldset class="fieldset">
+            <legend>Who can we thank for sharing a memory with us?</legend>
+            <div class="grid-x grid-margin-x">
+              <div class="medium-6 cell">
+                <%= f.text_field :uploaded_by_name, placeholder: "Name" %>
+              </div>
+              <div class="medium-6 cell">
+                <%= f.text_field :uploaded_by_email, placeholder: "Email" %>
+              </div>
+              <div class="cell">
+                <%= f.check_box(:display_uploaded_by, {}, true) %>
+                <%= label_tag(:display_uploaded_by, "May we credit you in our album?") %>
+              </div>
+            </div>
+        </div>
+        <div class="cell large-12">
+          <fieldset class="fieldset">
+            <legend>And now the good stuff</legend>
+            <div class="grid-x grid-margin-x">
+              <div class="cell medium-6">
+                <%= f.text_field :image_title, placeholder: "Title" %>
+              </div>
+              <div class="cell medium-6">
+                <div class="image-upload">
+                  <label for="file-input">
+                    <span class="upload-button button">Upload File</span>
+                  </label>
+                  <%= f.file_field :image, multiple: false, direct_upload: true, id: "file-input", class: "button" %>
+                </div>
+
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="cell">
+          <div class="grid-x grid-margin-x">
+            <div class="cell">
+              <%= f.submit "Share Photo", class: "button" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
