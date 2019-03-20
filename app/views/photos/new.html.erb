@@ -6,7 +6,7 @@
     <h1>Upload a Photo</h1>
   </div>
   <div class="cell">
-    <%= form_for @photo, url: { action: "create" }, remote: true do |f| %>
+    <%= form_for @photo, url: { action: "create" } do |f| %>
       <div class="grid-x grid-margin-x">
         <div class="cell small-12">
           <fieldset class="fieldset">
@@ -47,13 +47,22 @@
                 <%= f.text_field :image_title, placeholder: "Title" %>
               </div>
               <div class="cell medium-6">
-                <div class="image-upload">
-                  <label for="file-input">
-                    <span class="upload-button button">Upload File</span>
-                  </label>
-                  <%= f.file_field :image, multiple: false, direct_upload: true, id: "file-input", class: "button" %>
+                <div class="grid-x grid-margin-x">
+                  <div class="cell medium-6">
+                    <div class="image-upload">
+                      <label for="file-input">
+                        <div class="upload-button button">Upload File</div>
+                      </label>
+                      <%= f.file_field :image, multiple: false, direct_upload: true, id: "file-input", class: "button" %>
+                    </div>
+                  </div>
+                  <div class="cell small-6 medium-4">
+                    <div class="attached-file">Nothing selected</div>
+                  </div>
+                  <div class="cell small-6 medium-2">
+                    <a class="delete-file hide button hollow">Delete</a>
+                  </div>
                 </div>
-
               </div>
             </div>
           </fieldset>
@@ -62,6 +71,7 @@
           <div class="grid-x grid-margin-x">
             <div class="cell">
               <%= f.submit "Share Photo", class: "button" %>
+              <%= link_to "Reset Form", new_photo_path(reset: true), class: "button hollow" %>
             </div>
           </div>
         </div>

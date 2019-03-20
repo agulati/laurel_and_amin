@@ -83,10 +83,19 @@ h1 {
   box-shadow: 0 7px 0 #4a4a4a, 0 14px 0 #4a4a4a;
 }
 
+.callout {
+  margin-top: 1em;
+  text-align: center;
+}
+
 .image-upload > input {
    display: none;
 }
 
-.image-upload > label {
+.upload-button {
   cursor:pointer;
+}
+
+.attached-file {
+  padding-top: .5em;
 }
