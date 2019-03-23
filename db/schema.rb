@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_003833) do
     t.string "uploaded_by_name"
     t.string "uploaded_by_email"
     t.boolean "display_uploaded_by"
-    t.string "image_title"
-    t.text "comments"
+    t.string "caption"
+    t.integer "display_order"
     t.boolean "approved"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

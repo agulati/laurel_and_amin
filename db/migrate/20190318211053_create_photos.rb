@@ -5,8 +5,8 @@ class CreatePhotos < ActiveRecord::Migration[5.2]
       t.string  :uploaded_by_name
       t.string  :uploaded_by_email
       t.boolean :display_uploaded_by
-      t.string  :image_title
-      t.text    :comments
+      t.string  :caption
+      t.integer :display_order
       t.boolean :approved
       t.timestamps
     end
