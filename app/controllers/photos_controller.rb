@@ -5,13 +5,13 @@ class PhotosController < ApplicationController
     :uploaded_by_name,
     :uploaded_by_email,
     :display_uploaded_by,
-    :image_title,
+    :caption,
     :image,
   ].freeze
 
   IMAGE_PARAMS = [
     :image,
-    :image_title
+    :caption
   ].freeze
 
   class MissingPhotoError < StandardError
@@ -24,10 +24,14 @@ class PhotosController < ApplicationController
   before_action :reset_session,   only: [:new]
 
   def index
-    @photos = Photo.all
+    gon.next_approved_id = Photo.next_approved_id
   end
 
   def show
+    @photo = Photo.find(params[:id])
+    gon.next_approved_id = Photo.next_approved_id(current_approved_id: params[:id])
+
+    render layout: false
   end
 
   def create
@@ -76,7 +80,7 @@ class PhotosController < ApplicationController
   end
 
   def handle_error(exception)
-    flash[:alert] = "Oops, something went wrong - #{exception.message}"
+    flash[:alert] = "Oops, something went wrong: <p>#{exception.message}</p>"
     ApplicationNotifier.send_error_notification(exception: exception).deliver
   end
 end

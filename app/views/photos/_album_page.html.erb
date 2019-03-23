@@ -1,0 +1,17 @@
+<div class="book-content grid-x grid-margin-x">
+  <div class="cell media">
+    <%= image_tag @photo.image, class: "album-image", data: { open: "exampleModal1" } %>
+  </div>
+  <div class="cell caption">
+    <%= @photo.caption if @photo.caption.present? %>
+  </div>
+  <div class="cell credit">
+    - <%= @photo.uploaded_by_name || @photo.uploaded_by_email if @photo.display_uploaded_by %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(".album-image").on("click", function () {
+    $(".full-size-image").attr("src", $(this).attr("src"));
+  })
+</script>

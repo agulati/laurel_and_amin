@@ -1,16 +1,31 @@
+<% content_for :title do %>
+  Gallery
+<% end %>
+
 <div class="grid-x grid-margin-x">
   <div class="cell">
     <h1>Gallery</h1>
   </div>
+
   <div class="cell">
-    <div class="flipbook-viewport">
-      <div class="container">
-        <div class="flipbook">
-          <% @photos.each do |photo| %>
-            <div> <%= image_tag photo.image %></div>
-          <% end %>
+    <div id="canvas">
+      <div id="book-zoom">
+        <div class="photo-album">
+          <div depth="5" class="hard"> <div class="side"></div> </div>
+          <div depth="5" class="hard front-side"> <div class="depth"></div> </div>
+          <div class="own-size"></div>
+          <div class="own-size even"></div>
+          <div class="hard fixed back-side p111"> <div class="depth"></div> </div>
+          <div class="hard p112"></div>
         </div>
+      </div>
+      <div id="slider-bar" class="turnjs-slider">
+        <div id="slider"></div>
       </div>
     </div>
   </div>
+</div>
+
+<div class="reveal" data-animation-in="hinge-in-from-middle-x fade-in fast" data-animation-out="hinge-out-from-middle-x fade-out fast" id="exampleModal1" data-reveal>
+  <%= image_tag "", class: "full-size-image" %>
 </div>

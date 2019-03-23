@@ -1,9 +1,9 @@
 <% content_for :title do %>
-  Upload
+  Share
 <% end %>
 <div class="grid-x grid-margin-x">
   <div class="cell">
-    <h1>Upload a Photo</h1>
+    <h1>Share Your Memory</h1>
   </div>
   <div class="cell">
     <%= form_for @photo, url: { action: "create" } do |f| %>
@@ -12,13 +12,15 @@
           <fieldset class="fieldset">
             <legend>Event</legend>
             <div class="grid-x grid-margin-x">
-              <div class="medium-6 cell">
+              <div class="medium-3 large-2 cell">
                 <%= f.radio_button(:event_name, "sangeet") %>
                 <%= label_tag(:event_name_sangeet, "Sangeet") %>
               </div>
-              <div class="medium-6 cell">
+              <div class="medium-3 large-2 cell">
                 <%= f.radio_button(:event_name, "wedding") %>
                 <%= label_tag(:event_name_wedding, "Wedding") %>
+              </div>
+              <div class="auto">
               </div>
             </div>
           </fieldset>
@@ -44,7 +46,7 @@
             <legend>And now the good stuff</legend>
             <div class="grid-x grid-margin-x">
               <div class="cell medium-6">
-                <%= f.text_field :image_title, placeholder: "Title" %>
+                <%= f.text_field :caption, placeholder: "Caption" %>
               </div>
               <div class="cell medium-6">
                 <div class="grid-x grid-margin-x">
@@ -60,7 +62,7 @@
                     <div class="attached-file">Nothing selected</div>
                   </div>
                   <div class="cell small-6 medium-2">
-                    <a class="delete-file hide button hollow">Delete</a>
+                    <a class="delete-file hide button hollow">Clear</a>
                   </div>
                 </div>
               </div>

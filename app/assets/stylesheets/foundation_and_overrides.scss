@@ -1,18 +1,11 @@
-@charset 'utf-8';
+@charset "utf-8";
 
-@import 'settings';
-@import 'foundation';
-
-// If you'd like to include motion-ui the foundation-rails gem comes prepackaged with it, uncomment the 3 @imports, if you are not using the gem you need to install the motion-ui sass package.
-//
-// @import 'motion-ui/motion-ui';
-
-// We include everything by default.  To slim your CSS, remove components you don't use.
+@import "settings";
+@import "foundation";
+@import 'motion-ui/motion-ui';
 
 @include foundation-global-styles;
 @include foundation-xy-grid-classes;
-//@include foundation-grid;
-//@include foundation-flex-grid;
 @include foundation-flex-classes;
 @include foundation-typography;
 @include foundation-forms;
@@ -50,10 +43,8 @@
 @include foundation-visibility-classes;
 @include foundation-float-classes;
 
-// If you'd like to include motion-ui the foundation-rails gem comes prepackaged with it, uncomment the 3 @imports, if you are not using the gem you need to install the motion-ui sass package.
-//
-// @include motion-ui-transitions;
-// @include motion-ui-animations;
+@include motion-ui-transitions;
+@include motion-ui-animations;
 
 $link-color: $dark-gray;
 
@@ -74,6 +65,11 @@ h1 {
   background-color: #D4C59A;
 }
 
+.top-bar {
+  max-width: 1200px;
+  margin: auto;
+}
+
 .title-bar {
   padding: .75rem;
 }
@@ -83,19 +79,12 @@ h1 {
   box-shadow: 0 7px 0 #4a4a4a, 0 14px 0 #4a4a4a;
 }
 
+.navigation-container {
+  width: 100%;
+  background-color: #D4C59A;
+}
+
 .callout {
   margin-top: 1em;
   text-align: center;
-}
-
-.image-upload > input {
-   display: none;
-}
-
-.upload-button {
-  cursor:pointer;
-}
-
-.attached-file {
-  padding-top: .5em;
 }
