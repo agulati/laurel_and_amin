@@ -1,12 +1,12 @@
 <% content_for :title do %>
-  Upload
+  Share
 <% end %>
 <div class="grid-x grid-margin-x">
   <div class="cell">
-    <h1>Upload a Photo</h1>
+    <h1>Share Your Memory</h1>
   </div>
   <div class="cell">
-    <%= form_for @photo, url: { action: "create" } do |f| %>
+    <%= form_for @media, url: { action: "create" } do |f| %>
       <div class="grid-x grid-margin-x">
         <div class="cell small-12">
           <fieldset class="fieldset">
@@ -28,14 +28,14 @@
             <legend>Who can we thank for sharing a memory with us?</legend>
             <div class="grid-x grid-margin-x">
               <div class="medium-6 cell">
-                <%= f.text_field :uploaded_by_name, placeholder: "Name" %>
+                <%= f.text_field :uploaded_by_name, placeholder: "Name (optional)" %>
               </div>
               <div class="medium-6 cell">
-                <%= f.text_field :uploaded_by_email, placeholder: "Email" %>
+                <%= f.text_field :uploaded_by_email, placeholder: "Email (optional)" %>
               </div>
               <div class="cell">
                 <%= f.check_box(:display_uploaded_by, {}, true) %>
-                <%= label_tag(:display_uploaded_by, "May we credit you in our album?") %>
+                <%= label_tag(:display_uploaded_by, "May we credit you in our album? (optional)") %>
               </div>
             </div>
         </div>
@@ -44,16 +44,16 @@
             <legend>And now the good stuff</legend>
             <div class="grid-x grid-margin-x">
               <div class="cell medium-6">
-                <%= f.text_field :image_title, placeholder: "Title" %>
+                <%= f.text_field :caption, placeholder: "Caption (optional)" %>
               </div>
               <div class="cell medium-6">
                 <div class="grid-x grid-margin-x">
                   <div class="cell medium-6">
                     <div class="image-upload">
                       <label for="file-input">
-                        <div class="upload-button button">Upload File</div>
+                        <div class="upload-button button">Upload</div>
                       </label>
-                      <%= f.file_field :image, multiple: false, direct_upload: true, id: "file-input", class: "button" %>
+                      <%= f.file_field :attachment, multiple: false, direct_upload: true, id: "file-input", class: "button" %>
                     </div>
                   </div>
                   <div class="cell small-6 medium-4">
@@ -70,8 +70,8 @@
         <div class="cell">
           <div class="grid-x grid-margin-x">
             <div class="cell">
-              <%= f.submit "Share Photo", class: "button" %>
-              <%= link_to "Reset Form", new_photo_path(reset: true), class: "button hollow" %>
+              <%= f.submit "Share", class: "button" %>
+              <%= link_to "Reset", new_medium_path(reset: true), class: "button hollow" %>
             </div>
           </div>
         </div>

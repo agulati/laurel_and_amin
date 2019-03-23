@@ -1,0 +1,22 @@
+<div class="grid-x grid-margin-x">
+  <div class="cell">
+    <h1>Gallery</h1>
+  </div>
+  <div class="cell">
+    <div class="flipbook-viewport">
+      <div class="container">
+        <div class="flipbook">
+          <div class="media">
+            <% if @media.content_type == "video" %>
+              <video autoplay controls="">
+                <source src="<%= rails_blob_path(@media.attachment) %>" type="video/mp4">
+              </video>
+            <% else %>
+              <%= image_tag @media.attachment %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

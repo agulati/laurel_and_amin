@@ -1,6 +1,6 @@
-class CreatePhotos < ActiveRecord::Migration[5.2]
+class CreateMedia < ActiveRecord::Migration[5.2]
   def change
-    create_table :photos do |t|
+    create_table :media do |t|
       t.string  :event_name
       t.string  :uploaded_by_name
       t.string  :uploaded_by_email

@@ -23,7 +23,7 @@ module NavigationHelper
       if params[:action] == "new"
         "<li class=\"menu-text\">Share</li>"
       else
-        "<li>#{ link_to("Share", new_photo_path) }</li>"
+        "<li>#{ link_to("Share", new_medium_path) }</li>"
       end
     end.html_safe
   end

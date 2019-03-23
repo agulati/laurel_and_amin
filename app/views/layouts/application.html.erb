@@ -13,7 +13,6 @@
     <%= stylesheet_link_tag "application", media: "all" %>
 
     <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" %>
-    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" %>
     <%= javascript_include_tag "application" %>
   </head>
 
@@ -25,7 +24,7 @@
         <div class="cell">
           <% flash.each do |type, message| %>
             <div class="callout <%= type %>" data-closable>
-              <p><%= message %></p>
+              <%= message.html_safe %>
               <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
                 <span aria-hidden="true">&times;</span>
               </button>

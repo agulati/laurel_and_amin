@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_003833) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "photos", force: :cascade do |t|
+  create_table "media", force: :cascade do |t|
     t.string "event_name"
     t.string "uploaded_by_name"
     t.string "uploaded_by_email"
